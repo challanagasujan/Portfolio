@@ -32,6 +32,49 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Include EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init("p_AiK08zGp13JAX8S"); // Replace with your EmailJS user ID
+  })();
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contactForm');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    // Enable the submit button once all required fields are filled
+    form.addEventListener('input', function () {
+      submitButton.disabled = !form.checkValidity();
+    });
+
+    // Handle form submission
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const data = {
+        fullname: formData.get('fullname'),
+        email: formData.get('email'),
+        message: formData.get('message')
+      };
+
+      emailjs.send('service_6qora4z', 'template_aohben5', data) // Replace with your EmailJS service ID and template ID
+        .then(function(response) {
+          alert('Message sent successfully!');
+          form.reset();
+          submitButton.disabled = true;
+        }, function(error) {
+          alert('There was an error sending the message.');
+          console.error('Error:', error);
+        });
+    });
+  });
+</script>
+
 </head>
 
 <body>
@@ -218,11 +261,11 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
 
         <section class="about-text">
           <p>
-            I am a pre-final year undergraduate student at IIT Kharagpur, majoring in Civil Engineering. Passionate about coding and Product Management, I am adept in languages like C++, Python, HTML, and CSS. With a typing speed of 66 WPM, I aim to merge technology with innovation.
+            I am a Final year undergraduate student at IIT Kharagpur, majoring in Civil Engineering. Passionate about Programming and Product Management, I am adept in languages like C++, Python, HTML, and CSS, JavaScript and React JS. With a typing speed of 74 WPM, I aim to merge technology with innovation.
           </p>
 
           <p>
-            Proficient in developer tools like Git and frameworks like React, I am certified in Product Management and Stock Market Trading. In my downtime, I like to play sports like Hockey and Badminton. Looking ahead, I am eager to leverage my skills and experiences to drive meaningful change at the nexus of engineering, technology, and entrepreneurship, fueled by a relentless pursuit of excellence.
+            Proficient in developer tools like Git and frameworks like React, I am certified in Product Management, Project Management and Stock Market Trading. In my downtime, I like to play sports like Hockey and Badminton. Looking ahead, I am eager to leverage my skills and experiences to drive meaningful change at the nexus of engineering, technology, and entrepreneurship, fueled by a relentless pursuit of excellence.
           </p>
         </section>
 
@@ -247,7 +290,7 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
                 <h4 class="h4 service-item-title">Web development</h4>
 
                 <p class="service-item-text">
-                  High-quality development of sites for Personal and professional use.
+                  High-quality development of sites for Personal and Professional use
                 </p>
               </div>
 
@@ -264,7 +307,7 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
                 <h4 class="h4 service-item-title">UI/UX design</h4>
 
                 <p class="service-item-text">
-                  The most modern and high-quality design made for Practice.
+                  The most modern and high-quality design made for Practice
                 </p>
               </div>
 
@@ -280,7 +323,7 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
                 <h4 class="h4 service-item-title">Data Analytics</h4>
 
                 <p class="service-item-text">
-                  Analysis of Social Media data and open source data for learning purposes.
+                  Analysis of Social Media data and open source data for learning
                 </p>
               </div>
 
@@ -296,7 +339,7 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
                 <h4 class="h4 service-item-title">Civil Projects</h4>
 
                 <p class="service-item-text">
-                  I have made several Projects as a part of my course curriculum.
+                  I have made several Projects as a part of my major at IIT Kharagpur
                 </p>
               </div>
 
@@ -554,7 +597,7 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
               <span>2021 - Present</span>
 
               <p class="timeline-text">
-                I am a third-year undergraduate student of the Department of Civil Engineering enrolled in its B.tech Course.
+                I am a final-year undergraduate student of the Department of Civil Engineering enrolled in its B.tech Course.
               </p>
 
             </li>
@@ -601,9 +644,20 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
 
             <li class="timeline-item">
 
+              <h4 class="h4 timeline-item-title">Product Management Intern</h4>
+
+              <span>May 2024 — Jul 2024</span>
+
+              <p class="timeline-text">
+                Led User Research, Design, Data and Web Development at an early stage startup named 'Liquidmind AI' and Authored three Product Requirement Documents, propelling the product to near-MVP in just 2 months.
+              </p>
+
+            </li>
+            <li class="timeline-item">
+
               <h4 class="h4 timeline-item-title">Techncial Interviewer</h4>
 
-              <span>Feb 2024 — Present</span>
+              <span>Feb 2024 — May 2024</span>
 
               <p class="timeline-text">
                 Analyzed 100+ Candidates on their Technical skills in DSA as a Technical Interview Proctor at Mercor.
@@ -631,7 +685,7 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
 
               <h4 class="h4 timeline-item-title">UG Department Representative | IIT Kharagpur</h4>
 
-              <span>Oct 2023 — Present</span>
+              <span>Oct 2023 — Jul 2024</span>
 
               <p class="timeline-text">
                 Coordinating and Strengthening the voices of 500+ students of the Department of Civil Engineering to the Insitute UG Council
@@ -643,7 +697,7 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
 
               <h4 class="h4 timeline-item-title">Core Team Head | Megalith</h4>
 
-              <span>Apr 2023 - Mar 2024</span>
+              <span>Apr 2023 - Apr 2024</span>
 
               <p class="timeline-text">
                 Organized India's Largest Civil Engineering Technical Fest managing a team of 50+ with a 150% YOY growth.
@@ -669,7 +723,7 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
 
         <section class="skill">
 
-          <h3 class="h3 skills-title">My skills</h3>
+          <h3 class="h3 skills-title">My Skills</h3>
 
           <ul class="skills-list content-card">
 
@@ -677,11 +731,11 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
 
               <div class="title-wrapper">
                 <h5 class="h5">Web Development</h5>
-                <data value="80">80%</data>
+                <data value="90">90%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
+                <div class="skill-progress-fill" style="width: 90%;"></div>
               </div>
 
             </li>
@@ -703,11 +757,11 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
 
               <div class="title-wrapper">
                 <h5 class="h5">Competitive Programming</h5>
-                <data value="90">90%</data>
+                <data value="95">95%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
+                <div class="skill-progress-fill" style="width: 95%;"></div>
               </div>
 
             </li>
@@ -716,11 +770,11 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
 
               <div class="title-wrapper">
                 <h5 class="h5">Data Analytics</h5>
-                <data value="50">50%</data>
+                <data value="40">40%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
+                <div class="skill-progress-fill" style="width: 40%;"></div>
               </div>
 
             </li>
@@ -1236,44 +1290,32 @@ Feel free to edit the HTML and CSS to make it your own. You can also check the R
         <section class="mapbox" data-mapbox>
           <figure>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d537.4481040744766!2d80.64152557482507!3d16.246395801077075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1712628516685!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1464.7319187526286!2d87.29922307954551!3d22.31988796425882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1722784556640!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
               width="400" height="300" loading="lazy"></iframe>
           </figure>
         </section>
 
         <section class="contact-form">
-
           <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
+          <form id="contactForm" class="form" data-form>
             <div class="input-wrapper">
               <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
               <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
-
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
-
           </form>
-
         </section>
+        
 
       </article>
 
     </div>
 
   </main>
-
-
-
-
-
 
   <!--
     - custom js link
